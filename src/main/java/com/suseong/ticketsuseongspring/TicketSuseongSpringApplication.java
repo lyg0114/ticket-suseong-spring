@@ -9,5 +9,7 @@ public class TicketSuseongSpringApplication {
   public static void main(String[] args) {
     ConfigurableApplicationContext run = SpringApplication
         .run(TicketSuseongSpringApplication.class, args);
+    StartTicketProcess process = run.getBean(StartTicketProcess.class);
+    process.start();
   }
 }
