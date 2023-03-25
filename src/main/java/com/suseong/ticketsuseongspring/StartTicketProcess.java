@@ -1,5 +1,6 @@
 package com.suseong.ticketsuseongspring;
 
+import com.suseong.ticketsuseongspring.login.ActionLogin;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
@@ -16,12 +17,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class StartTicketProcess {
 
-  private final WebDriver driver;
-
   @Value("${login.url}")
   private String loginUrl;
+  private final WebDriver driver;
+  private final ActionLogin login;
 
   public void start() {
     driver.get(loginUrl);
+    login.startLogin();
   }
 }
