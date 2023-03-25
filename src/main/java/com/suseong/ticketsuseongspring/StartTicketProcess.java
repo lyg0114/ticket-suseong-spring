@@ -1,6 +1,7 @@
 package com.suseong.ticketsuseongspring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class StartTicketProcess {
 
+  @Value("${my.service.url}")
+  private String url;
+
   public void start() {
-    log.info("call StartTicketProcess.start()");
   }
 }
