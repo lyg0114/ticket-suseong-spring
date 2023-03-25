@@ -1,13 +1,11 @@
 package com.suseong.ticketsuseongspring.login;
 
-import com.suseong.ticketsuseongspring.conf.Global;
-import java.time.Duration;
+import com.suseong.ticketsuseongspring.conf.GlobalVar;
 import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,37 +17,30 @@ import org.springframework.stereotype.Component;
 @Component
 public class ActionLogin {
 
-  @Value("${login.url}")
-  private String loginUrl;
-  @Value("${target.id}")
-  private String userId;
-  @Value("${target.pw}")
-  private String userPw;
-
-  private Duration delay = Duration.ofMillis(10);
+  private final GlobalVar global;
   private final WebDriver driver;
 
   public void startLogin() {
-    driver.get(loginUrl);
-    WebElement elementID = driver.findElement(By.id("id"));
-    WebElement elementPw = driver.findElement(By.id("password"));
-    WebElement elementBtn = driver.findElement(By.xpath(Global.LOGIN_BTN_PATH));
+    driver.get(global.getLoginUrl());
+    WebElement elementID = driver.findElement(By.xpath(global.getLoginIdXpath()));
+    WebElement elementPw = driver.findElement(By.xpath(global.getLoginPwXpath()));
+    WebElement elementBtn = driver.findElement(By.xpath(global.getLoginBtnXpath()));
 
     new Actions(driver)
         .moveToElement(elementID)
-        .pause(delay)
+        .pause(GlobalVar.COMMON_DELAY)
         .clickAndHold()
-        .pause(delay)
-        .sendKeys(userId) // add id
+        .pause(GlobalVar.COMMON_DELAY)
+        .sendKeys(global.getUserId())
 
         .moveToElement(elementPw)
-        .pause(delay)
+        .pause(GlobalVar.COMMON_DELAY)
         .clickAndHold()
-        .pause(delay)
-        .sendKeys(userPw) // add pw
+        .pause(GlobalVar.COMMON_DELAY)
+        .sendKeys(global.getUserPw())
 
-        .moveToElement(elementBtn) // click sumit btn
-        .pause(delay)
+        .moveToElement(elementBtn)
+        .pause(GlobalVar.COMMON_DELAY)
         .click()
         .perform();
   }

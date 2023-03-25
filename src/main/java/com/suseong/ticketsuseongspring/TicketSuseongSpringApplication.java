@@ -1,6 +1,6 @@
 package com.suseong.ticketsuseongspring;
 
-import com.suseong.ticketsuseongspring.conf.Global;
+import com.suseong.ticketsuseongspring.conf.GlobalVar;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 public class TicketSuseongSpringApplication {
 
   public static void main(String[] args) {
-    System.setProperty(Global.DRIVER_NAME, Global.DRIVER_PATH);
+    System.setProperty(GlobalVar.DRIVER_NAME, GlobalVar.DRIVER_PATH);
     SpringApplication.run(TicketSuseongSpringApplication.class, args)
         .getBean(StartTicketProcess.class)
         .start();
