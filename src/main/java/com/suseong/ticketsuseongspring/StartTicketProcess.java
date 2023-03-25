@@ -3,6 +3,7 @@ package com.suseong.ticketsuseongspring;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,7 +18,10 @@ public class StartTicketProcess {
 
   private final WebDriver driver;
 
+  @Value("${login.url}")
+  private String loginUrl;
+
   public void start() {
-    driver.get("https://lll.suseong.kr/index.do?menu_id=00001969");
+    driver.get(loginUrl);
   }
 }
