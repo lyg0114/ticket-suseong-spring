@@ -1,7 +1,8 @@
 package com.suseong.ticketsuseongspring;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.openqa.selenium.WebDriver;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,12 +11,13 @@ import org.springframework.stereotype.Component;
  * @since : 2023/03/25
  */
 @Slf4j
+@RequiredArgsConstructor
 @Component
 public class StartTicketProcess {
 
-  @Value("${my.service.url}")
-  private String url;
+  private final WebDriver driver;
 
   public void start() {
+    driver.get("https://lll.suseong.kr/index.do?menu_id=00001969");
   }
 }
