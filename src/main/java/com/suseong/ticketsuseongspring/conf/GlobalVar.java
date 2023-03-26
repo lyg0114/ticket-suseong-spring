@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 public class GlobalVar {
   public static String DRIVER_NAME = "webdriver.chrome.driver";
   public static String DRIVER_PATH = "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources/chromedriver";
-  public static String LOGIN_BTN_PATH = "/html/body/div/div[2]/main/article/div/form/div/div[1]/div[1]/button";
   public static Duration COMMON_DELAY = Duration.ofMillis(10);
 
   @Value("${login.url}")
