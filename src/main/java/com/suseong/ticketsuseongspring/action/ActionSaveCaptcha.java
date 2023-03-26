@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class ActionCaptcha {
+public class ActionSaveCaptcha {
 
   private final GlobalVar global;
   private final WebDriver driver;

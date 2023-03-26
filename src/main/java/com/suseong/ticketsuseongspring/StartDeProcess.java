@@ -1,8 +1,7 @@
 package com.suseong.ticketsuseongspring;
 
-import com.suseong.ticketsuseongspring.action.ActionCaptcha;
+import com.suseong.ticketsuseongspring.action.ActionSaveCaptcha;
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
-import com.suseong.ticketsuseongspring.action.ActionLogin;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
@@ -20,11 +19,11 @@ public class StartDeProcess implements StartProcess {
 
   private final GlobalVar global;
   private final WebDriver driver;
-  private final ActionCaptcha actionCaptcha;
+  private final ActionSaveCaptcha actionSaveCaptcha;
 
   @Override
   public void start() {
     driver.get(global.getTargetUrl());
-    actionCaptcha.translateCaptcha();
+    actionSaveCaptcha.translateCaptcha();
   }
 }
