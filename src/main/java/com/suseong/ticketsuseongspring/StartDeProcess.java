@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @RequiredArgsConstructor
-//@Component
-public class StartTicketProcess implements StartProcess {
+@Component
+public class StartDeProcess implements StartProcess {
 
   private final GlobalVar global;
   private final WebDriver driver;
@@ -23,7 +23,6 @@ public class StartTicketProcess implements StartProcess {
 
   @Override
   public void start() {
-    driver.get(global.getLoginUrl());
-    login.startLogin();
+    driver.get(global.getTargetUrl());
   }
 }

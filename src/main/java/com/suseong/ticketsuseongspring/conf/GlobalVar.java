@@ -17,6 +17,8 @@ public class GlobalVar {
   public static String DRIVER_PATH = "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources/chromedriver";
   public static Duration COMMON_DELAY = Duration.ofMillis(10);
 
+  @Value("${target.url}")
+  private String targetUrl;
   @Value("${login.url}")
   private String loginUrl;
   @Value("${target.id}")
