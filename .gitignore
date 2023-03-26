@@ -6,6 +6,7 @@ target/
 
 #**/src/**/*.properties
 **/src/main/resources/*.properties
+**/src/main/resources/*.png
 
 ### STS ###
 .apt_generated

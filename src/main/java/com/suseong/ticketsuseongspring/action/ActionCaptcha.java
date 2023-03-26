@@ -1,7 +1,10 @@
 package com.suseong.ticketsuseongspring.action;
 
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
+import java.io.FileOutputStream;
+import java.util.Base64;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Component;
  * @package : com.suseong.ticketsuseongspring.action
  * @since : 2023/03/27
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class ActionCaptcha {
@@ -21,7 +25,18 @@ public class ActionCaptcha {
 
   public void translateCaptcha() {
     WebElement elementCaptcha = driver.findElement(By.xpath(global.getCaptchaXpaht()));
-    extractedCaptchaStr(elementCaptcha);
+    byte[] decodedImage = Base64
+        .getDecoder()
+        .decode(extractedCaptchaStr(elementCaptcha));
+
+    try (FileOutputStream imageOutput = new FileOutputStream(
+        "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources/captcha.png")) {
+      imageOutput.write(decodedImage);
+      log.info("CAPTCHA image save success");
+    } catch (Exception e) {
+      log.error("CAPTCHA image save fail");
+      e.printStackTrace();
+    }
   }
 
   private String extractedCaptchaStr(WebElement elementCaptcha) {
@@ -30,5 +45,4 @@ public class ActionCaptcha {
     String captchaStr = split.split("\"")[0];
     return captchaStr;
   }
-
 }
