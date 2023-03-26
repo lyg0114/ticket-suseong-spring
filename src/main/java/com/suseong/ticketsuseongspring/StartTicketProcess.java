@@ -1,11 +1,10 @@
 package com.suseong.ticketsuseongspring;
 
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
-import com.suseong.ticketsuseongspring.login.ActionLogin;
+import com.suseong.ticketsuseongspring.action.ActionLogin;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
-import org.springframework.stereotype.Component;
 
 /**
  * @author : iyeong-gyo

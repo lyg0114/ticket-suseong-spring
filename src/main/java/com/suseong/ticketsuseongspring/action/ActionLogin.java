@@ -1,4 +1,4 @@
-package com.suseong.ticketsuseongspring.login;
+package com.suseong.ticketsuseongspring.action;
 
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
 import lombok.RequiredArgsConstructor;
