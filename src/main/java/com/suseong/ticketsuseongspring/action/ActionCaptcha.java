@@ -21,10 +21,14 @@ public class ActionCaptcha {
 
   public void translateCaptcha() {
     WebElement elementCaptcha = driver.findElement(By.xpath(global.getCaptchaXpaht()));
+    extractedCaptchaStr(elementCaptcha);
+  }
+
+  private String extractedCaptchaStr(WebElement elementCaptcha) {
     String plainStr = elementCaptcha.getAttribute("style");
     String split = plainStr.split(",")[1];
-    String result = split.split("\"")[0];
-    System.out.println("result = " + result);
+    String captchaStr = split.split("\"")[0];
+    return captchaStr;
   }
 
 }
