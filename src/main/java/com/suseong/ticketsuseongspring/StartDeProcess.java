@@ -1,5 +1,6 @@
 package com.suseong.ticketsuseongspring;
 
+import com.suseong.ticketsuseongspring.action.ActionCaptcha;
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
 import com.suseong.ticketsuseongspring.action.ActionLogin;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +20,11 @@ public class StartDeProcess implements StartProcess {
 
   private final GlobalVar global;
   private final WebDriver driver;
-  private final ActionLogin login;
+  private final ActionCaptcha actionCaptcha;
 
   @Override
   public void start() {
     driver.get(global.getTargetUrl());
+    actionCaptcha.translateCaptcha();
   }
 }

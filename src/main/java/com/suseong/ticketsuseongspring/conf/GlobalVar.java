@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Component
 public class GlobalVar {
+
   public static String DRIVER_NAME = "webdriver.chrome.driver";
   public static String DRIVER_PATH = "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources/chromedriver";
   public static Duration COMMON_DELAY = Duration.ofMillis(10);
@@ -31,4 +32,6 @@ public class GlobalVar {
   private String loginPwXpath;
   @Value("${login.btn.xpath}")
   private String loginBtnXpath;
+  @Value("${captcha.xpath}")
+  private String captchaXpaht;
 }
