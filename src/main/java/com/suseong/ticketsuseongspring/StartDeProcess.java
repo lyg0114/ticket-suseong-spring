@@ -24,6 +24,6 @@ public class StartDeProcess implements StartProcess {
   @Override
   public void start() {
     driver.get(global.getTargetUrl());
-    actionSaveCaptcha.translateCaptcha();
+    actionSaveCaptcha.saveCaptchaFromWeb();
   }
 }

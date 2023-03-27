@@ -23,14 +23,14 @@ public class ActionSaveCaptcha {
   private final GlobalVar global;
   private final WebDriver driver;
 
-  public void translateCaptcha() {
+  public void saveCaptchaFromWeb() {
     WebElement elementCaptcha = driver.findElement(By.xpath(global.getCaptchaXpaht()));
     byte[] decodedImage = Base64
         .getDecoder()
         .decode(extractedCaptchaStr(elementCaptcha));
 
-    try (FileOutputStream imageOutput = new FileOutputStream(
-        "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources/captcha.png")) {
+    try {
+      FileOutputStream imageOutput = new FileOutputStream(GlobalVar.CAPTCHA_PATH);
       imageOutput.write(decodedImage);
       log.info("CAPTCHA image save success");
     } catch (Exception e) {

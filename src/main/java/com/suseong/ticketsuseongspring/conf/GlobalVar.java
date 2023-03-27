@@ -14,9 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class GlobalVar {
 
-  public static String DRIVER_NAME = "webdriver.chrome.driver";
-  public static String DRIVER_PATH = "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources/chromedriver";
   public static Duration COMMON_DELAY = Duration.ofMillis(10);
+
+  public static String DRIVER_NAME = "webdriver.chrome.driver";
+  public static String RESOURCE_PATH = "/Users/iyeong-gyo/Desktop/study/toy-study/ticket-suseong-spring/src/main/resources";
+  public static String DRIVER_PATH = RESOURCE_PATH + "/chromedriver";
+  public static String CAPTCHA_PATH = RESOURCE_PATH + "/captcha.jpeg";
 
   @Value("${target.url}")
   private String targetUrl;
