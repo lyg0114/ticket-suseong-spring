@@ -29,6 +29,6 @@ public class StartDeProcess implements StartProcess {
   public void start() {
     driver.get(global.getTargetUrl());
     actionSaveCaptcha.saveCaptchaFromWeb();
-    actionReadCaptcha.readCaptcha();
+    String captchaStr = actionReadCaptcha.readCaptcha();
   }
 }
