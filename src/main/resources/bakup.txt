@@ -1,10 +1,11 @@
+#target
+target.url=https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=seou&realmId=798&categoryId=1467
 #login
 login.url=https://lll.suseong.kr/index.do?menu_id=00001912
 target.id=lyg1029
 target.pw=chojungs8928
-
-
 # XPath
 login.id.xpath=/html/body/div/div[2]/main/article/div/form/div/div[1]/div[1]/span[1]/input
 login.pw.xpath=/html/body/div/div[2]/main/article/div/form/div/div[1]/div[1]/span[2]/input
 login.btn.xpath=/html/body/div/div[2]/main/article/div/form/div/div[1]/div[1]/button
+captcha.xpath=/html/body/div[1]/div[2]/div[1]/div[1]/form/div[1]/captcha/div
