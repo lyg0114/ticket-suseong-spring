@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GlobalVar {
 
+  public static String LANGUAGE_TAG = "eng";
   public static Duration COMMON_DELAY = Duration.ofMillis(10);
 
   public static String DRIVER_NAME = "webdriver.chrome.driver";
@@ -37,4 +38,6 @@ public class GlobalVar {
   private String loginBtnXpath;
   @Value("${captcha.xpath}")
   private String captchaXpaht;
+  @Value("${tesseract.dataPath}")
+  private String dataPath;
 }

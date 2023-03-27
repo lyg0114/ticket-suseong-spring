@@ -1,6 +1,7 @@
 package com.suseong.ticketsuseongspring;
 
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
+import net.sourceforge.tess4j.Tesseract;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -26,5 +27,10 @@ public class TicketSuseongSpringApplication {
   @Bean
   public ChromeOptions chromeOptions() {
     return new ChromeOptions().addArguments("--remote-allow-origins=*");
+  }
+
+  @Bean
+  public Tesseract tesseract() {
+    return new Tesseract();
   }
 }
