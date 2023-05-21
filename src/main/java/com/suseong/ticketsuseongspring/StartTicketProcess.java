@@ -2,7 +2,7 @@ package com.suseong.ticketsuseongspring;
 
 import com.suseong.ticketsuseongspring.action.ActionLogin;
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
-import com.suseong.ticketsuseongspring.util.InitDriver;
+import com.suseong.ticketsuseongspring.conf.InitDriver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.Alert;
