@@ -16,9 +16,15 @@ public class ReservationController {
 
   private final StartProcess startProcess;
 
-  @GetMapping("/start-res")
-  public String testCron() {
-    startProcess.start();
+  @GetMapping("/start-res-1")
+  public String testCron1() {
+    String userId = "lyg1029";
+    String userPw = "chojungs8928";
+    startProcess.start(userId, userPw);
+
+    userId = "chojungs";
+    userPw = "chojungs8928";
+    startProcess.start(userId, userPw);
     return "SUCCESS";
   }
 }

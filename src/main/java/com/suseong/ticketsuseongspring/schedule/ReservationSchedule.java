@@ -20,8 +20,16 @@ public class ReservationSchedule {
   private final StartProcess startProcess;
 
   @Scheduled(cron = "0 0 9 * * ?")
-  public String testCron() {
-    startProcess.start();
+  public String testCron1() {
+
+    String userId = "chojungs";
+    String userPw = "chojungs8928";
+    startProcess.start(userId, userPw);
+
+    userId = "lyg1029";
+    userPw = "chojungs8928";
+    startProcess.start(userId, userPw);
+
     return "SUCCESS";
   }
 }
