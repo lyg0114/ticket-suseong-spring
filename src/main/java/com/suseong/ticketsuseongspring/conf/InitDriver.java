@@ -17,7 +17,7 @@ public class InitDriver {
   private static ChromeOptions getOptions() {
     return new ChromeOptions()
         .addArguments("--remote-allow-origins=*")
-        .setHeadless(true)
+        .setHeadless(false) //true --> disable chrome view
         ;
   }
 }
