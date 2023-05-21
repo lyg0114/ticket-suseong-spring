@@ -27,14 +27,14 @@ public class StartTicketProcess implements StartProcess {
   private final ActionLogin login;
 
   @Override
-  public void start() {
+  public void start(String userId, String userPw) {
     driver = InitDriver.getDriver();
     driver.get(global.getLoginUrl());
-    login.startLogin(driver);
+    login.startLogin(driver, userId, userPw);
     goToYoGaPage();
     checkPersonalInfo();
     confirmReservation();
-//    clickConfirmAlert();
+    clickConfirmAlert();
   }
 
 

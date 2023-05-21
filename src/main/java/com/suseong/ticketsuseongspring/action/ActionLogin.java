@@ -19,7 +19,7 @@ public class ActionLogin {
 
   private final GlobalVar global;
 
-  public void startLogin(WebDriver driver) {
+  public void startLogin(WebDriver driver, String userId, String userPw) {
     driver.get(global.getLoginUrl());
     WebElement elementID = driver.findElement(By.xpath(global.getLoginIdXpath()));
     WebElement elementPw = driver.findElement(By.xpath(global.getLoginPwXpath()));
@@ -30,13 +30,13 @@ public class ActionLogin {
         .pause(GlobalVar.COMMON_DELAY)
         .clickAndHold()
         .pause(GlobalVar.COMMON_DELAY)
-        .sendKeys(global.getUserId())
+        .sendKeys(userId)
 
         .moveToElement(elementPw)
         .pause(GlobalVar.COMMON_DELAY)
         .clickAndHold()
         .pause(GlobalVar.COMMON_DELAY)
-        .sendKeys(global.getUserPw())
+        .sendKeys(userPw)
 
         .moveToElement(elementBtn)
         .pause(GlobalVar.COMMON_DELAY)
