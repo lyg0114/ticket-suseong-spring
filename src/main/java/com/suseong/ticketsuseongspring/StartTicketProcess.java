@@ -4,6 +4,7 @@ import com.suseong.ticketsuseongspring.action.ActionLogin;
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +32,12 @@ public class StartTicketProcess implements StartProcess {
     goToYoGaPage();
     checkPersonalInfo();
     confirmReservation();
+    clickConfirmAlert();
+  }
+
+  private void clickConfirmAlert() {
+    Alert alert = driver.switchTo().alert();
+    alert.accept();
   }
 
   private void confirmReservation() {
