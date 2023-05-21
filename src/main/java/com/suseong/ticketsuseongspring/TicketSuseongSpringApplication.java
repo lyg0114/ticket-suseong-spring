@@ -15,8 +15,7 @@ public class TicketSuseongSpringApplication {
   public static void main(String[] args) {
     System.setProperty(GlobalVar.DRIVER_NAME, GlobalVar.DRIVER_PATH);
     SpringApplication.run(TicketSuseongSpringApplication.class, args)
-        .getBean(StartProcess.class)
-        .start();
+    ;
   }
 
   @Bean
