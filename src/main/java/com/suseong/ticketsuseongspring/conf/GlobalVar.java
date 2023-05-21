@@ -28,6 +28,8 @@ public class GlobalVar {
   private String selectCenterXpath;
   @Value("${personal.info.check.xpath}")
   private String personalInfoCheckXPath;
+  @Value("${reserve.btn.xpath}")
+  private String reservationBtnXpath;
 
 
   @Value("${login.url}")

@@ -30,6 +30,15 @@ public class StartTicketProcess implements StartProcess {
     login.startLogin();
     goToYoGaPage();
     checkPersonalInfo();
+    confirmReservation();
+  }
+
+  private void confirmReservation() {
+    WebElement clickReserviationBtn = driver.findElement(By.xpath(global.getReservationBtnXpath()));
+    new Actions(driver)
+        .moveToElement(clickReserviationBtn)
+        .click()
+        .perform();
   }
 
   private void goToYoGaPage() {
@@ -42,7 +51,8 @@ public class StartTicketProcess implements StartProcess {
 
   private void checkPersonalInfo() {
     driver.get(global.getTargetUrl());
-    WebElement personalInfoCheckBtn = driver.findElement(By.xpath(global.getPersonalInfoCheckXPath()));
+    WebElement personalInfoCheckBtn = driver
+        .findElement(By.xpath(global.getPersonalInfoCheckXPath()));
     new Actions(driver)
         .moveToElement(personalInfoCheckBtn)
         .click()
