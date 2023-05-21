@@ -24,6 +24,12 @@ public class GlobalVar {
 
   @Value("${target.url}")
   private String targetUrl;
+  @Value("${select.center.xpath}")
+  private String selectCenterXpath;
+  @Value("${personal.info.check.xpath}")
+  private String personalInfoCheckXPath;
+
+
   @Value("${login.url}")
   private String loginUrl;
   @Value("${target.id}")
@@ -40,4 +46,5 @@ public class GlobalVar {
   private String captchaXpaht;
   @Value("${tesseract.dataPath}")
   private String dataPath;
+
 }
