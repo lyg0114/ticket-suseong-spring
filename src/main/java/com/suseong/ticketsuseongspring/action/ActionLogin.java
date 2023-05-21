@@ -18,9 +18,8 @@ import org.springframework.stereotype.Component;
 public class ActionLogin {
 
   private final GlobalVar global;
-  private final WebDriver driver;
 
-  public void startLogin() {
+  public void startLogin(WebDriver driver) {
     driver.get(global.getLoginUrl());
     WebElement elementID = driver.findElement(By.xpath(global.getLoginIdXpath()));
     WebElement elementPw = driver.findElement(By.xpath(global.getLoginPwXpath()));

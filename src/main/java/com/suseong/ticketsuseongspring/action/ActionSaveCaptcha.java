@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.springframework.stereotype.Component;
 
 /**
  * @author : iyeong-gyo
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @RequiredArgsConstructor
-@Component
+//@Component
 public class ActionSaveCaptcha {
 
   private final GlobalVar global;

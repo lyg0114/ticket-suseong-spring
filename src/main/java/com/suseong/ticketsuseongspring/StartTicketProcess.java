@@ -2,6 +2,7 @@ package com.suseong.ticketsuseongspring;
 
 import com.suseong.ticketsuseongspring.action.ActionLogin;
 import com.suseong.ticketsuseongspring.conf.GlobalVar;
+import com.suseong.ticketsuseongspring.util.InitDriver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.Alert;
@@ -21,19 +22,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class StartTicketProcess implements StartProcess {
 
+  private WebDriver driver;
   private final GlobalVar global;
-  private final WebDriver driver;
   private final ActionLogin login;
 
   @Override
   public void start() {
+    driver = InitDriver.getDriver();
     driver.get(global.getLoginUrl());
-    login.startLogin();
+    login.startLogin(driver);
     goToYoGaPage();
     checkPersonalInfo();
     confirmReservation();
-    clickConfirmAlert();
+//    clickConfirmAlert();
   }
+
 
   private void clickConfirmAlert() {
     Alert alert = driver.switchTo().alert();
