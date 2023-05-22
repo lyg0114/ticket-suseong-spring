@@ -26,7 +26,7 @@ public class StartDeProcess implements StartProcess {
   private final ActionReadCaptcha actionReadCaptcha;
 
   @Override
-  public void start(String userId, String userPw) {
+  public void start() {
     driver.get(global.getTargetUrl());
     actionSaveCaptcha.saveCaptchaFromWeb();
     String captchaStr = actionReadCaptcha.readCaptcha();

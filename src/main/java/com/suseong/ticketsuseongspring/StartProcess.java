@@ -7,5 +7,5 @@ package com.suseong.ticketsuseongspring;
  */
 public interface StartProcess {
 
-  void start(String userId, String userPw);
+  void start();
 }
