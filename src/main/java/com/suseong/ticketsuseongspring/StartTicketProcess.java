@@ -28,15 +28,24 @@ public class StartTicketProcess implements StartProcess {
 
   @Override
   public void start(String userId, String userPw) {
-    driver = InitDriver.getDriver();
-    driver.get(global.getLoginUrl());
-    login.startLogin(driver, userId, userPw);
-    goToYoGaPage();
-    checkPersonalInfo();
-    confirmReservation();
-    clickConfirmAlert();
-  }
+    int retryCnt = 0;
+    boolean confirm = false;
 
+    while (retryCnt < 5 || confirm) {
+      try {
+        driver = InitDriver.getDriver();
+        driver.get(global.getLoginUrl());
+        login.startLogin(driver, userId, userPw);
+        goToYoGaPage();
+        checkPersonalInfo();
+        confirmReservation();
+        clickConfirmAlert();
+        confirm = true;
+      } catch (RuntimeException ex) {
+        log.error(ex.getMessage() + " retry : " + (++retryCnt));
+      }
+    }
+  }
 
   private void clickConfirmAlert() {
     Alert alert = driver.switchTo().alert();
@@ -45,10 +54,16 @@ public class StartTicketProcess implements StartProcess {
 
   private void confirmReservation() {
     WebElement clickReserviationBtn = driver.findElement(By.xpath(global.getReservationBtnXpath()));
+    String BtnText = clickReserviationBtn.getText();
+    if (!BtnText.equals("신청하기")) {
+      throw new RuntimeException("There is no clickReserviationBtn");
+    }
+
     new Actions(driver)
         .moveToElement(clickReserviationBtn)
         .click()
-        .perform();
+        .perform()
+    ;
   }
 
   private void goToYoGaPage() {
