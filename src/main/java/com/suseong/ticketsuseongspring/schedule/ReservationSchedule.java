@@ -21,15 +21,7 @@ public class ReservationSchedule {
 
   @Scheduled(cron = "0 0 9 * * ?")
   public String testCron1() {
-
-    String userId = "chojungs";
-    String userPw = "chojungs8928";
-    startProcess.start(userId, userPw);
-
-    userId = "lyg1029";
-    userPw = "chojungs8928";
-    startProcess.start(userId, userPw);
-
+    startProcess.start();
     return "SUCCESS";
   }
 }

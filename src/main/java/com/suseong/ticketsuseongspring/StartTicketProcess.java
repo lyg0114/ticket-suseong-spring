@@ -27,7 +27,7 @@ public class StartTicketProcess implements StartProcess {
   private final ActionLogin login;
 
   @Override
-  public void start(String userId, String userPw) {
+  public void start() {
     int retryCnt = 0;
     boolean confirm = false;
 
@@ -35,7 +35,7 @@ public class StartTicketProcess implements StartProcess {
       try {
         driver = InitDriver.getDriver();
         driver.get(global.getLoginUrl());
-        login.startLogin(driver, userId, userPw);
+        login.startLogin(driver, global.getUserId(), global.getUserPw());
         goToYoGaPage();
         checkPersonalInfo();
         confirmReservation();
